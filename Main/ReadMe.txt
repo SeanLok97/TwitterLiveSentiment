@@ -1,5 +1,3 @@
-
-
 The repository contains the code to retrieve tweets live from Twitter, and process them to give a live, updating sentiment score graph.
 
 
@@ -9,4 +7,6 @@ TextBlob
 Numpy
 PyQtGraph
 PyQt5
-time
+Regex
+Time
+Collections
