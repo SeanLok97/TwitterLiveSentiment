@@ -28,6 +28,9 @@ class StreamListener(tweepy.StreamListener):
         #print("tweets received: " + str(self.Counter))
         return True
 
+    def on_error(self, status_code):
+        print("Tweepy error code: " + str(status_code))
+        return False
 
     def get_latest_tweet(self):
         return self.latest_tweet
