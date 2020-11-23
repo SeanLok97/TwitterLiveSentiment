@@ -8,6 +8,7 @@ import numpy as np
 import time
 
 
+
 class StreamListener(tweepy.StreamListener):
     def __init__(self):
         super(StreamListener, self).__init__()
@@ -24,8 +25,12 @@ class StreamListener(tweepy.StreamListener):
         tweet = ' '.join(re.sub('RT', ' ', tweet).split())
         self.latest_tweet = tweet
         self.Counter += 1
-        print("tweets received: " + str(self.Counter))
+        #print("tweets received: " + str(self.Counter))
         return True
+
+    def on_error(self, status_code):
+        print("Tweepy error code: " + str(status_code))
+        return False
 
     def get_latest_tweet(self):
         return self.latest_tweet
@@ -44,8 +49,8 @@ class Analyser:
         self.Sentiment.append(tweetblob.sentiment.polarity)
         self.Countervec.append(self.Counter)
         self.Counter += 1
-        print("tweets analysed: " + str(self.Counter))
-        print(tweet)
+        #print("tweets analysed: " + str(self.Counter))
+        #print(tweet)
         return list(self.Countervec), list(self.Sentiment), self.Counter
 
         # return list(self.Countervec), list(self.Sentiment), self.Counter
@@ -71,12 +76,11 @@ if __name__ == "__main__":
     pw = pg.plot()
     pw.setYRange(-1,1)
     pg.QtGui.QApplication.processEvents()
+
     refreshrate = 0.01 #Refresh rate of the graph per second - the lower the number is, the more tweets that could be missed due to plotting efficiency (only affects very common terms such as Trump)
     searchterms = ['trump']
 
     stream.filter(track=searchterms, is_async=True)
-
-
 
     oldtime = time.time()
     while True:
@@ -84,6 +88,7 @@ if __name__ == "__main__":
         if latest_tweet != check:
             x,y,counter = plotter.analysis(latest_tweet)
             check = latest_tweet
+            print(latest_tweet)
 
 
             if time.time() - oldtime >= refreshrate:
