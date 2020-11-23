@@ -81,7 +81,6 @@ if __name__ == "__main__":
     searchterms = ['trump']
 
     stream.filter(track=searchterms, is_async=True)
-
     oldtime = time.time()
     while True:
         latest_tweet = listener.get_latest_tweet()
