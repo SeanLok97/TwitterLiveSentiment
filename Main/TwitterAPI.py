@@ -45,6 +45,7 @@ class Analyser:
     def analysis(self, tweet):
         tweetblob = TextBlob(tweet)
 
+        # Remove comment and add indentation if you wish to remove any sentiment score that is 0
         # if tweetblob.sentiment.polarity != 0:
         self.Sentiment.append(tweetblob.sentiment.polarity)
         self.Countervec.append(self.Counter)
@@ -77,7 +78,8 @@ if __name__ == "__main__":
     pw.setYRange(-1,1)
     pg.QtGui.QApplication.processEvents()
 
-    refreshrate = 0.01 #Refresh rate of the graph per second - the lower the number is, the more tweets that could be missed due to plotting efficiency (only affects very common terms such as Trump)
+    refreshrate = 0.01 #Refresh rate of the graph per second - the lower the number is, the more tweets that could be
+                       # missed due to plotting efficiency (only affects very common terms such as Trump)
     searchterms = ['trump']
 
     stream.filter(track=searchterms, is_async=True)
