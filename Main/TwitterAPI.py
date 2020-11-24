@@ -72,15 +72,21 @@ if __name__ == "__main__":
 
     listener = StreamListener()
     plotter = Analyser(memory)
-    stream = tweepy.Stream(api.auth, listener, tweet_mode='extended',lang='zh')
+    stream = tweepy.Stream(api.auth, listener, tweet_mode='extended',lang='en')
     check = ""
     pw = pg.plot()
     pw.setYRange(-1,1)
+    pw.setLabel(axis='left', text='Sentiment Score')
+    pw.setLabel(axis='bottom', text='Tweet Number')
     pg.QtGui.QApplication.processEvents()
+
+#-----------------------------------------------------------------------------------------------------------------------
 
     refreshrate = 0.01 #Refresh rate of the graph per second - the lower the number is, the more tweets that could be
                        # missed due to plotting efficiency (only affects very common terms such as Trump)
     searchterms = ['trump']
+
+#-----------------------------------------------------------------------------------------------------------------------
 
     stream.filter(track=searchterms, is_async=True)
     oldtime = time.time()
