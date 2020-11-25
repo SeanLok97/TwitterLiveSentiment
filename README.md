@@ -5,9 +5,7 @@ The repository contains the code to retrieve tweets live from Twitter, and proce
 For this code to work as intended, Twitter credentials must be pasted into the TwitterCredentials.py file, for more information
 see https://developer.twitter.com/en/docs/twitter-api/tweets/hide-replies/quick-start
 
-The specific search terms can be changed under the variable searchterms in line 85.
-The refresh rate heavily affects the number of tweets analysed. If set too low, the code will miss some of the tweets
-sent, though this mostly affects high traffic search terms such as Trump.
+To change the search terms, the variable searchterm can be changed in TwitterAPI.py. Note that the refresh rate heavily affects the number of tweets analysed. If set this value is set too low, the code will miss some of the tweets sent, though this mostly affects high traffic search terms such as Trump.
 
 Dependencies:
 Tweepy
