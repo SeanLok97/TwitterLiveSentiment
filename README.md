@@ -1,6 +1,10 @@
 The repository contains the code to retrieve tweets live from Twitter, and process them to give a live, updating sentiment score graph.
 
-![ezgif-5-b165503aff3d](https://user-images.githubusercontent.com/66477337/100153157-a4863700-2e9b-11eb-9c20-27051d863573.gif)
+<p align="center">
+  <img width="460" height="300" src="https://user-images.githubusercontent.com/66477337/100153157-a4863700-2e9b-11eb-9c20-27051d863573.gif">
+</p>
+
+
 
 For this code to work as intended, Twitter credentials must be pasted into the TwitterCredentials.py file, for more information
 see https://developer.twitter.com/en/docs/twitter-api/tweets/hide-replies/quick-start
