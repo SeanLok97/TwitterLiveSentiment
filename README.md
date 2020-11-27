@@ -4,6 +4,10 @@ The repository contains the code to retrieve tweets live from Twitter, and proce
   <img width="460" height="300" src="https://user-images.githubusercontent.com/66477337/100153157-a4863700-2e9b-11eb-9c20-27051d863573.gif">
 </p>
 
+**Features:**
+Live graph as shown in the example above.
+Setting a max limit on how many tweet sentiments to display, once this limit is reached, it will begin removing the first tweets.
+The yellow horizontal line shows the current mean average of the tweets.
 
 
 For this code to work as intended, Twitter credentials must be pasted into the TwitterCredentials.py file, for more information
