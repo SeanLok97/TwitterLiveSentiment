@@ -67,7 +67,7 @@ if __name__ == "__main__":
 
     refreshrate = 0.01 #Refresh rate of the graph per second - the lower the number is, the more tweets that could be
                        # missed due to plotting efficiency (only affects very common terms such as Trump)
-    searchterms = ['trump']
+    searchterms = ['trump'] #Change text in apostrophe to change the search term
 
 #-----------------------------------------------------------------------------------------------------------------------
 
