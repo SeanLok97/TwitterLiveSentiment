@@ -14,14 +14,14 @@ For this code to work as intended, Twitter credentials must be pasted into the T
 see https://developer.twitter.com/en/docs/twitter-api/tweets/hide-replies/quick-start
 
 To change the search terms, the variable *searchterm* can be changed in TwitterAPI.py. <br/>
-The number of points plotted on the graph can be changed via memory. Note that the refresh rate heavily affects the number of tweets analysed. If this value is set too low, the code will miss some of the tweets received, though this mostly affects high traffic search terms such as Trump.
+The number of points plotted on the graph can be changed via the variable *memory*. Note that the refresh rate heavily affects the number of tweets analysed. If this value is set too low, the code will miss some of the tweets received, though this mostly affects high traffic search terms such as Trump.
 
 Dependencies:
-Tweepy
-TextBlob
-Numpy
-PyQtGraph
-PyQt5
-Regex
-Time
-Collections
+Tweepy,
+TextBlob,
+Numpy,
+PyQtGraph,
+PyQt5,
+Regex,
+Time,
+Collections.
