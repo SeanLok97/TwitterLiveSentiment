@@ -45,6 +45,7 @@ class Analyser:
     def analysis(self, tweet):
         tweetblob = TextBlob(tweet)
 
+        # Remove comment and add indentation if you wish to remove any sentiment score that is 0
         # if tweetblob.sentiment.polarity != 0:
         self.Sentiment.append(tweetblob.sentiment.polarity)
         self.Countervec.append(self.Counter)
@@ -58,6 +59,19 @@ class Analyser:
 
 
 if __name__ == "__main__":
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+    memory = 10 #Number of points to keep plotted on graph
+
+    refreshrate = 0.01 #Refresh rate of the graph per second - the lower the number is, the more tweets that could be
+                       # missed due to plotting efficiency (only affects very common terms such as Trump)
+    searchterms = ['trump'] #Change text in apostrophe to change the search term
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
     consumer_key = TwitterCredentials.consumer_key
     consumer_secret = TwitterCredentials.consumer_secret
     access_key = TwitterCredentials.access_key
@@ -67,18 +81,15 @@ if __name__ == "__main__":
 
     api = tweepy.API(auth, wait_on_rate_limit=True,
                      wait_on_rate_limit_notify=True)
-    memory = 100
-
     listener = StreamListener()
     plotter = Analyser(memory)
-    stream = tweepy.Stream(api.auth, listener, tweet_mode='extended',lang='zh')
+    stream = tweepy.Stream(api.auth, listener, tweet_mode='extended', lang='en')
     check = ""
     pw = pg.plot()
-    pw.setYRange(-1,1)
+    pw.setYRange(-1, 1)
+    pw.setLabel(axis='left', text='Sentiment Score')
+    pw.setLabel(axis='bottom', text='Tweet Number')
     pg.QtGui.QApplication.processEvents()
-
-    refreshrate = 0.01 #Refresh rate of the graph per second - the lower the number is, the more tweets that could be missed due to plotting efficiency (only affects very common terms such as Trump)
-    searchterms = ['trump']
 
     stream.filter(track=searchterms, is_async=True)
     oldtime = time.time()
