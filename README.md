@@ -5,15 +5,16 @@ The repository contains the code to retrieve tweets live from Twitter, and proce
 </p>
 
 **Features:**
-Live graph as shown in the example above.
-Setting a max limit on how many tweet sentiments to display, once this limit is reached, it will begin removing the first tweets.
-The yellow horizontal line shows the current mean average of the tweets.
+Live graph as shown in the example above.<br/>
+Setting a max limit on how many tweet sentiments to display, once this limit is reached, it will begin removing the first tweets.<br/>
+The yellow horizontal line shows the current mean average of the tweets.<br/>
 
 
 For this code to work as intended, Twitter credentials must be pasted into the TwitterCredentials.py file, for more information
 see https://developer.twitter.com/en/docs/twitter-api/tweets/hide-replies/quick-start
 
-To change the search terms, the variable *searchterm* can be changed in TwitterAPI.py. Note that the refresh rate heavily affects the number of tweets analysed. If this value is set too low, the code will miss some of the tweets received, though this mostly affects high traffic search terms such as Trump.
+To change the search terms, the variable *searchterm* can be changed in TwitterAPI.py. <br/>
+The number of points plotted on the graph can be changed via memory. Note that the refresh rate heavily affects the number of tweets analysed. If this value is set too low, the code will miss some of the tweets received, though this mostly affects high traffic search terms such as Trump.
 
 Dependencies:
 Tweepy
